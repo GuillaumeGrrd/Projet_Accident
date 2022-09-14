@@ -40,6 +40,15 @@ def mapping_demo():
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[2]}")
 
+    @st.cache
+    def from_data_file(filename):
+        url = (
+            "http://raw.githubusercontent.com/GuillaumeGrrd/"
+            "Projet_Accident/blob/master/data/map/%s" % filename
+        )
+        return pd.read_json(url)
+
+
     # import Caractéristique 
     dfCara2020 = pd.read_csv('data/caracteristiques-2020.csv', sep = ';')
     dfCara2019 = pd.read_csv('data/caracteristiques-2019.csv', sep = ';')
@@ -59,7 +68,7 @@ def mapping_demo():
         layers=[
             pdk.Layer(
                 'HexagonLayer',
-                data=df,
+                data= 'http://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/blob/master/data/map/Map.csv',
                 get_position='[long, lat]',
                 radius=200,
                 elevation_scale=4,
