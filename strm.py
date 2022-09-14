@@ -38,7 +38,7 @@ def Dataviz():
 
     from urllib.error import URLError
 
-    st.markdown(f"# {list(page_names_to_funcs.keys())[2]}")
+    st.markdown(f"# {list(page_names_to_funcs.keys())[1]}")
 
     HEXAGON_LAYER_DATA = (
         'https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/map/Map.csv'

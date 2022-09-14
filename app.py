@@ -96,6 +96,7 @@ to display geospatial data.
             ),
         }
         st.sidebar.markdown("### Map Layers")
+        
         selected_layers = [
             layer
             for layer_name, layer in ALL_LAYERS.items()
