@@ -29,7 +29,7 @@ def intro():
     """
     )
 
-def mapping_demo():
+def Dataviz():
     import streamlit as st
     import pandas as pd
     import pydeck as pdk
@@ -40,50 +40,31 @@ def mapping_demo():
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[2]}")
 
-    @st.cache
-    def from_data_file(filename):
-        url = (
-            "http://raw.githubusercontent.com/GuillaumeGrrd/"
-            "Projet_Accident/blob/master/data/map/%s" % filename
-        )
-        return pd.read_json(url)
-
-
-    # import Caractéristique 
-    dfCara2020 = pd.read_csv('data/caracteristiques-2020.csv', sep = ';')
-    dfCara2019 = pd.read_csv('data/caracteristiques-2019.csv', sep = ';')
-
-    df = pd.concat([dfCara2020, dfCara2019], axis = 0)
-    df = df[['long','lat']]
-    df =df.applymap(lambda x: str(x.replace(',','.'))).astype(float)
+    HEXAGON_LAYER_DATA = (
+        'https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/map/Map.csv'
+    )
 
     st.pydeck_chart(pdk.Deck(
         map_style=None,
         initial_view_state=pdk.ViewState(
-            latitude=48.8,
-            longitude=-2.4,
-            zoom=8,
-            pitch=50,
+            latitude=46.0,
+            longitude=2,
+            zoom=5,
+            pitch=35,
         ),
         layers=[
             pdk.Layer(
                 'HexagonLayer',
-                data= 'http://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/blob/master/data/map/Map.csv',
-                get_position='[long, lat]',
-                radius=200,
-                elevation_scale=4,
-                elevation_range=[0, 1000],
+                HEXAGON_LAYER_DATA,
+                get_position= ['long', 'lat'],
+                auto_highlight=True,
+                radius=800,
+                elevation_scale=70,
                 pickable=True,
+                elevation_range=[0, 3000],
                 extruded=True,
-            ),
-
-            pdk.Layer(
-             'ScatterplotLayer',
-             data=df,
-             get_position='[lon, lat]',
-             get_color='[200, 30, 0, 160]',
-             get_radius=200,
-         ),            
+                coverage=1,
+            ),           
         ],
     ))
 
@@ -183,11 +164,11 @@ def data_frame_demo():
         )
 
 page_names_to_funcs = {
-    "—": intro,
-    "Plotting Demo": plotting_demo,
-    "Mapping Demo": mapping_demo,
-    "DataFrame Demo": data_frame_demo
+    "Présentation du projet": intro,
+    "Data Visualisation": Dataviz,
+    "Modélisation": plotting_demo,
+    "Prototype": data_frame_demo
 }
 
-demo_name = st.sidebar.selectbox("Choose a demo", page_names_to_funcs.keys())
+demo_name = st.sidebar.selectbox("Navigation", page_names_to_funcs.keys())
 page_names_to_funcs[demo_name]()
