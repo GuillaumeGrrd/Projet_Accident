@@ -3,29 +3,22 @@ import streamlit as st
 def intro():
     import streamlit as st
 
-    st.write("# Welcome to Streamlit! 👋")
-    st.sidebar.success("Select a demo above.")
+    st.write("# Accidents routiers en France ")
+    #st.sidebar.success("Select a demo above.")
 
     st.markdown(
         """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
+        L’objectif de ce projet est d’essayer de prédire la gravité des accidents routiers en France.
+        Les prédictions seront basées sur les données historiques.
 
-        **👈 Select a demo from the dropdown on the left** to see some examples
-        of what Streamlit can do!
 
-        ### Want to learn more?
+        ### Data
 
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
+        - Bases de données annuelles des accidents corporels de la circulation routière [data.gouv.fr](https://www.data.gouv.fr/en/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2019/)
+        - test1
+        - test2
+        ### titre 2
 
-        ### See more complex demos
-
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
     """
     )
 
@@ -39,6 +32,14 @@ def Dataviz():
     from urllib.error import URLError
 
     st.markdown(f"# {list(page_names_to_funcs.keys())[1]}")
+    st.markdown(
+        """ 
+        
+        hsdjqflhgjlqshgdjkqsghjskqghqskjlmghkqls
+
+
+    """)
+
 
     HEXAGON_LAYER_DATA = (
         'https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/map/Map.csv'
@@ -69,7 +70,7 @@ def Dataviz():
     ))
 
 
-def plotting_demo():
+def Modelisation():
     import streamlit as st
     import time
     import numpy as np
@@ -105,7 +106,7 @@ Streamlit. We're generating a bunch of random numbers in a loop for around
 
 
 
-def data_frame_demo():
+def Proto():
     import streamlit as st
     import pandas as pd
     import altair as alt
@@ -166,8 +167,8 @@ def data_frame_demo():
 page_names_to_funcs = {
     "Présentation du projet": intro,
     "Data Visualisation": Dataviz,
-    "Modélisation": plotting_demo,
-    "Prototype": data_frame_demo
+    "Modélisation": Modelisation,
+    "Prototype": Proto
 }
 
 demo_name = st.sidebar.selectbox("Navigation", page_names_to_funcs.keys())
