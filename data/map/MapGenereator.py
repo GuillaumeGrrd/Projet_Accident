@@ -12,3 +12,4 @@ df = df[df['lat']!=0]
 
 os.chdir("C:/Users/girar/Projet/Projet_Accident/data/map")
 df.to_csv("Map.csv", index = False)
+

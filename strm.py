@@ -41,8 +41,8 @@ def Dataviz():
     """)
 
 
-    #HEXAGON_LAYER_DATA = ('https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/map/Map.csv')
-    HEXAGON_LAYER_DATA = 'data/map/Map.csv'
+    HEXAGON_LAYER_DATA = ('https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/map/Map.csv')
+    #HEXAGON_LAYER_DATA = 'data/map/Map.csv'
 
     st.pydeck_chart(pdk.Deck(
         map_style=None,
