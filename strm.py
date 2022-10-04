@@ -5,7 +5,8 @@ def intro():
 
     st.write("# Accidents routiers en France ")
     #st.sidebar.success("Select a demo above.")
-    image = ('https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/map/Map.csv')
+    image = ('https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/Image strmlt/2d74cd9e344ebb9d077ffef9a6d32a.png')
+    
     st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
     st.markdown(
