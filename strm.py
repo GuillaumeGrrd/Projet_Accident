@@ -1,12 +1,28 @@
 import streamlit as st
 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://cdn.pixabay.com/photo/2019/04/24/11/27/flowers-4151900_960_720.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url() 
+
 def intro():
     import streamlit as st
 
     st.write("# Accidents routiers en France ")
     #st.sidebar.success("Select a demo above.")
     image = ('https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/Image strmlt/2d74cd9e344ebb9d077ffef9a6d32a.png')
-    
+
     st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
     st.markdown(
@@ -199,5 +215,8 @@ page_names_to_funcs = {
     "Prototype": Proto
 }
 
+imagesidebar = ('https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/Image strmlt/téléchargement.png')
+st.sidebar.image(imagesidebar, use_column_width=True) 
 demo_name = st.sidebar.selectbox("Navigation", page_names_to_funcs.keys())
+
 page_names_to_funcs[demo_name]()
