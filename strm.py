@@ -5,19 +5,39 @@ def intro():
 
     st.write("# Accidents routiers en France ")
     #st.sidebar.success("Select a demo above.")
+    image = ('https://raw.githubusercontent.com/GuillaumeGrrd/Projet_Accident/master/data/map/Map.csv')
+    st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
     st.markdown(
         """
-        L’objectif de ce projet est d’essayer de prédire la gravité des accidents routiers en France.
-        Les prédictions seront basées sur les données historiques.
+        ### Introduction
+        Chaque année, environ 50 000 d’accidents de la route se produisent en France. 
+
+        Même si leur nombre est en baisse depuis plusieurs années, les conséquences peuvent être dramatique. 
+
+        Lorsqu’un accident ce produit, il est important pour un centre d’appel de pourvoir estimer rapidement la gravité d’un accident pour pouvoir y envoyer les secours adéquats. La question est d’autant plus importante lorsque plusieurs accidents se produisent au même moment et que les ressources disponibles sont limitées.
+        
+        Comment aider à la prise de décision ? 
+
+        Les outils de data science peuvent-ils apporter une prédiction fiable sur la gravité d’un accident de la route ? 
 
 
         ### Data
 
-        - Bases de données annuelles des accidents corporels de la circulation routière [data.gouv.fr](https://www.data.gouv.fr/en/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2019/)
-        - test1
-        - test2
-        ### titre 2
+        Pour tenter de répondre à cette problématique nous disponsons des donné suivantes:
+
+        Bases de données annuelles des accidents corporels de la circulation routière [data.gouv.fr](https://www.data.gouv.fr/en/datasets/bases-de-donnees-annuelles-des-accidents-corporels-de-la-circulation-routiere-annees-de-2005-a-2019/)
+
+           
+        Les données se décompose en 4 fichiers :
+        - La fichier CARACTERISTIQUES qui décrit les circonstances générales de l’accident
+        - La fichier LIEUX qui décrit le lieu principal de l’accident 
+        - La fichier VEHICULES qui fournit les détails sur les véhicules impliqués
+        - La fichier USAGERS qui communique les informations sur les usagers impliqués dans l’accident 
+
+
+    
+
 
     """
     )
@@ -35,7 +55,7 @@ def Dataviz():
     st.markdown(
         """ 
         
-        hsdjqflhgjlqshgdjkqsghjskqghqskjlmghkqls
+        Répartition géographique des accidents de la route en france
 
 
     """)
@@ -67,6 +87,14 @@ def Dataviz():
             ),           
         ],
     ))
+    st.markdown(
+        """ 
+        
+        Répartition géographique des accidents de la route en france
+
+
+    """)
+
 
 
 def Modelisation():
@@ -94,7 +122,7 @@ Streamlit. We're generating a bunch of random numbers in a loop for around
         chart.add_rows(new_rows)
         progress_bar.progress(i)
         last_rows = new_rows
-        time.sleep(0.05)
+        time.sleep(0.0)
 
     progress_bar.empty()
 
